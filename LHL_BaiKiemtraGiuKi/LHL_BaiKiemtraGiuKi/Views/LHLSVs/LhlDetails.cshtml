@@ -1,0 +1,74 @@
+﻿@model LHL_BaiKiemtraGiuKi.Models.LHLSV
+
+@{
+    ViewBag.Title = "LhlDetails";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LHLSV</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlHoSv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlHoSv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlTenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlTenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlNgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlNgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlPhai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlPhai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlKHOA.LhlTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlKHOA.LhlTenKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "LhlEdit", new { id = Model.LhlMaSV }) |
+    @Html.ActionLink("Back to List", "LhlIndex")
+</p>

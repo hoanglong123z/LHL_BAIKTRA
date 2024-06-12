@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LHL_BaiKiemtraGiuKi.Models.LHLSV>
+
+@{
+    ViewBag.Title = "LhlIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "LhlCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlHoSv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlTenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlNgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlPhai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LhlKHOA.LhlTenKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlHoSv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlTenSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlNgaySinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlPhai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LhlKHOA.LhlTenKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "LhlEdit", new { id=item.LhlMaSV }) |
+            @Html.ActionLink("Details", "LhlDetails", new { id=item.LhlMaSV }) |
+            @Html.ActionLink("Delete", "LhlDelete", new { id=item.LhlMaSV })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LHLK22CNT3Lesson07Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LhlKHOA">
+          <Key>
+            <PropertyRef Name="LhlMaKH" />
+          </Key>
+          <Property Name="LhlMaKH" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="LhlTenKH" Type="nvarchar" MaxLength="50" />
+          <Property Name="LhlTrangThai" Type="bit" />
+        </EntityType>
+        <EntityType Name="LHLSV">
+          <Key>
+            <PropertyRef Name="LhlMaSV" />
+          </Key>
+          <Property Name="LhlMaSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LhlHoSv" Type="nvarchar" MaxLength="50" />
+          <Property Name="LhlTenSV" Type="nvarchar" MaxLength="50" />
+          <Property Name="LhlNgaySinh" Type="date" />
+          <Property Name="LhlPhai" Type="bit" />
+          <Property Name="LhlPhone" Type="nchar" MaxLength="10" />
+          <Property Name="LhlEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="LhlMaKH" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_LHLSV_LhlKHOA">
+          <End Role="LhlKHOA" Type="Self.LhlKHOA" Multiplicity="0..1" />
+          <End Role="LHLSV" Type="Self.LHLSV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LhlKHOA">
+              <PropertyRef Name="LhlMaKH" />
+            </Principal>
+            <Dependent Role="LHLSV">
+              <PropertyRef Name="LhlMaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LHLK22CNT3Lesson07ModelStoreContainer">
+          <EntitySet Name="LhlKHOA" EntityType="Self.LhlKHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LHLSV" EntityType="Self.LHLSV" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LHLSV_LhlKHOA" Association="Self.FK_LHLSV_LhlKHOA">
+            <End Role="LhlKHOA" EntitySet="LhlKHOA" />
+            <End Role="LHLSV" EntitySet="LHLSV" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LHLK22CNT3Lesson07Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LHLSV">
+          <Key>
+            <PropertyRef Name="LhlMaSV" />
+          </Key>
+          <Property Name="LhlMaSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LhlHoSv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LhlTenSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LhlNgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="LhlPhai" Type="Boolean" />
+          <Property Name="LhlPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LhlEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LhlMaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="LhlKHOA" Relationship="LHLK22CNT3Lesson07Model.FK_LHLSV_LhlKHOA" FromRole="LHLSV" ToRole="LhlKHOA" />
+        </EntityType>
+        <EntityContainer Name="LHLK22CNT3Lesson07Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LHLSVs" EntityType="Self.LHLSV" />
+          <EntitySet Name="LhlKHOAs" EntityType="LHLK22CNT3Lesson07Model.LhlKHOA" />
+          <AssociationSet Name="FK_LHLSV_LhlKHOA" Association="LHLK22CNT3Lesson07Model.FK_LHLSV_LhlKHOA">
+            <End Role="LhlKHOA" EntitySet="LhlKHOAs" />
+            <End Role="LHLSV" EntitySet="LHLSVs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LhlKHOA">
+          <Key>
+            <PropertyRef Name="LhlMaKH" />
+          </Key>
+          <Property Name="LhlMaKH" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LhlTenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LhlTrangThai" Type="Boolean" />
+          <NavigationProperty Name="LHLSVs" Relationship="LHLK22CNT3Lesson07Model.FK_LHLSV_LhlKHOA" FromRole="LhlKHOA" ToRole="LHLSV" />
+        </EntityType>
+        <Association Name="FK_LHLSV_LhlKHOA">
+          <End Type="LHLK22CNT3Lesson07Model.LhlKHOA" Role="LhlKHOA" Multiplicity="0..1" />
+          <End Type="LHLK22CNT3Lesson07Model.LHLSV" Role="LHLSV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LhlKHOA">
+              <PropertyRef Name="LhlMaKH" />
+            </Principal>
+            <Dependent Role="LHLSV">
+              <PropertyRef Name="LhlMaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LHLK22CNT3Lesson07ModelStoreContainer" CdmEntityContainer="LHLK22CNT3Lesson07Entities1">
+          <EntitySetMapping Name="LHLSVs">
+            <EntityTypeMapping TypeName="LHLK22CNT3Lesson07Model.LHLSV">
+              <MappingFragment StoreEntitySet="LHLSV">
+                <ScalarProperty Name="LhlMaSV" ColumnName="LhlMaSV" />
+                <ScalarProperty Name="LhlHoSv" ColumnName="LhlHoSv" />
+                <ScalarProperty Name="LhlTenSV" ColumnName="LhlTenSV" />
+                <ScalarProperty Name="LhlNgaySinh" ColumnName="LhlNgaySinh" />
+                <ScalarProperty Name="LhlPhai" ColumnName="LhlPhai" />
+                <ScalarProperty Name="LhlPhone" ColumnName="LhlPhone" />
+                <ScalarProperty Name="LhlEmail" ColumnName="LhlEmail" />
+                <ScalarProperty Name="LhlMaKH" ColumnName="LhlMaKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LhlKHOAs">
+            <EntityTypeMapping TypeName="LHLK22CNT3Lesson07Model.LhlKHOA">
+              <MappingFragment StoreEntitySet="LhlKHOA">
+                <ScalarProperty Name="LhlTrangThai" ColumnName="LhlTrangThai" />
+                <ScalarProperty Name="LhlTenKH" ColumnName="LhlTenKH" />
+                <ScalarProperty Name="LhlMaKH" ColumnName="LhlMaKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

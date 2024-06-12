@@ -1,0 +1,80 @@
+﻿@model LHL_BaiKiemtraGiuKi.Models.LHLSV
+
+@{
+    ViewBag.Title = "LhlDelete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LHLSV</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlHoSv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlHoSv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlTenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlTenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlNgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlNgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlPhai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlPhai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LhlKHOA.LhlTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LhlKHOA.LhlTenKH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "LhlIndex")
+        </div>
+    }
+</div>

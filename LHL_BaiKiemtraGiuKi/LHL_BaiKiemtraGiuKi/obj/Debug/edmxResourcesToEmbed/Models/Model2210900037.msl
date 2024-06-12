@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LHLK22CNT3Lesson07ModelStoreContainer" CdmEntityContainer="LHLK22CNT3Lesson07Entities1">
+    <EntitySetMapping Name="LHLSVs">
+      <EntityTypeMapping TypeName="LHLK22CNT3Lesson07Model.LHLSV">
+        <MappingFragment StoreEntitySet="LHLSV">
+          <ScalarProperty Name="LhlMaSV" ColumnName="LhlMaSV" />
+          <ScalarProperty Name="LhlHoSv" ColumnName="LhlHoSv" />
+          <ScalarProperty Name="LhlTenSV" ColumnName="LhlTenSV" />
+          <ScalarProperty Name="LhlNgaySinh" ColumnName="LhlNgaySinh" />
+          <ScalarProperty Name="LhlPhai" ColumnName="LhlPhai" />
+          <ScalarProperty Name="LhlPhone" ColumnName="LhlPhone" />
+          <ScalarProperty Name="LhlEmail" ColumnName="LhlEmail" />
+          <ScalarProperty Name="LhlMaKH" ColumnName="LhlMaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LhlKHOAs">
+      <EntityTypeMapping TypeName="LHLK22CNT3Lesson07Model.LhlKHOA">
+        <MappingFragment StoreEntitySet="LhlKHOA">
+          <ScalarProperty Name="LhlTrangThai" ColumnName="LhlTrangThai" />
+          <ScalarProperty Name="LhlTenKH" ColumnName="LhlTenKH" />
+          <ScalarProperty Name="LhlMaKH" ColumnName="LhlMaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LHLK22CNT3Lesson07Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LhlKHOA">
+    <Key>
+      <PropertyRef Name="LhlMaKH" />
+    </Key>
+    <Property Name="LhlMaKH" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="LhlTenKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="LhlTrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="LHLSV">
+    <Key>
+      <PropertyRef Name="LhlMaSV" />
+    </Key>
+    <Property Name="LhlMaSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LhlHoSv" Type="nvarchar" MaxLength="50" />
+    <Property Name="LhlTenSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="LhlNgaySinh" Type="date" />
+    <Property Name="LhlPhai" Type="bit" />
+    <Property Name="LhlPhone" Type="nchar" MaxLength="10" />
+    <Property Name="LhlEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="LhlMaKH" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_LHLSV_LhlKHOA">
+    <End Role="LhlKHOA" Type="Self.LhlKHOA" Multiplicity="0..1" />
+    <End Role="LHLSV" Type="Self.LHLSV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LhlKHOA">
+        <PropertyRef Name="LhlMaKH" />
+      </Principal>
+      <Dependent Role="LHLSV">
+        <PropertyRef Name="LhlMaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LHLK22CNT3Lesson07ModelStoreContainer">
+    <EntitySet Name="LhlKHOA" EntityType="Self.LhlKHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LHLSV" EntityType="Self.LHLSV" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LHLSV_LhlKHOA" Association="Self.FK_LHLSV_LhlKHOA">
+      <End Role="LhlKHOA" EntitySet="LhlKHOA" />
+      <End Role="LHLSV" EntitySet="LHLSV" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
